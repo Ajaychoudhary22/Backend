@@ -16,7 +16,7 @@ app.get('/notes',(req,res)=>{
 
 //we can use post method too get new data from the server 
 app.post('/notes',(req,res)=>{
-    const note=req.body
+    const note = req.body
     notes.push(note)
     res.json({message:'Note added successfully', note:note})
 })
