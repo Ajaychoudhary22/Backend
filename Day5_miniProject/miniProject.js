@@ -13,14 +13,17 @@ app.get('/notes',(req,res)=>{
     res.json(notes)
 })
 
-
 //we can use post method too get new data from the server 
 app.post('/notes',(req,res)=>{
     const note = req.body
-    notes.push(note)
-    res.json({message:'Note added successfully', note:note})
-})
 
+    notes.push(note)
+
+    res.json({
+        message:'Note added successfully',
+        notes:notes   // full array send
+    })
+})
 //we can also add a delete route to delete a note by its index
 app.delete('/notes/:index',(req,res)=>{
     const index=req.params.index
@@ -32,8 +35,8 @@ app.delete('/notes/:index',(req,res)=>{
 
 app.patch('/notes/:index',(req,res)=>{
     const index = req.params.index
-    const {title }= req.body
-    notes[index].title=title
+    const {title} = req.body
+    notes[index].title = title
     res.json({message:'Note updated successfully', note:notes[index]})
 })
 

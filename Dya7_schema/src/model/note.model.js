@@ -11,6 +11,6 @@ const noteSchema = new mongosse.Schema({
 
 //yha ham model create karenge jiska naam Note hoga aur usme hamne apna schema pass kiya hai
 
-const NoteModel = mongosse.model("Note",noteSchema);
+const NoteModel = mongosse.model('Note',noteSchema);
 
 module.exports=NoteModel;

@@ -25,18 +25,27 @@ app.get('/notes',async(req,res)=>{
 
 // we can create a post api
 // jab bhi hamare paas koi aisi request aati hai jisme data hota hai jo database me store karna hota hai, to ham server me defined schema ka use karke data ko validate kar sakte hain before saving it. Isse ensure hota hai ki sirf valid aur properly structured data hi database me store hota hai. Yaha hamne ek post api banayi hai jisme ham NoteModel ka use karke apne database me data ko create kar rahe hain. Jab bhi koi request aati hai /notes endpoint par, to ham title aur content ko req.body se lete hain aur NoteModel.create() method ka use karke database me ek naya note create karte hain. Agar note successfully create ho jata hai, to ham ek json response bhejte hain jisme message hota hai "Note created successfully". 
-app.post("/notes",async (req,res)=>{
-    const {title,content}= req.body;
-    
-  await NoteModel.create({
-    title,
-    content
-   })
-   res.json({
-    message:"Note created successfully"
-   })
-})
+app.post("/notes", async (req, res) => {
+    try {
+        const { title, content } = req.body;
 
+        const newNote = await NoteModel.create({
+            title,
+            content
+        });
+
+        res.status(201).json({
+            message: "Note created successfully",
+            note: newNote
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            message: "Error creating note",
+            error: error.message
+        });
+    }
+});
 
 //delete operation findoneid and delete
 app.delete("/notes/:id",async(req,res)=>{

@@ -8,7 +8,21 @@
 // Server ke context me, aap schema ko define karne ke liye alag-alag libraries ya frameworks ka use kar sakte ho, jaise ki Mongoose MongoDB ke liye. Schema me aap fields define kar sakte ho jaise name, email, password, etc., unke data types (e.g., String, Number) aur validation rules (e.g., required, unique) ke sath. Jab server ko koi request aati hai jisme data hota hai jo database me store karna hota hai, to server defined schema ka use karke data ko validate kar sakta hai before saving it. Isse ensure hota hai ki sirf valid aur properly structured data hi database me store hota hai.
 
 
-//what is modal 
-// a modal is make easy crud operations on the corresponding collection[simaliar type of data ] in the database. It provides an interface to interact with the database, allowing you to perform operations like creating, reading, updating, and deleting documents in a collection. In a server context, a modal can be used to define the structure of the data and the methods to interact with it, making it easier to manage and manipulate data in the database.
+<!-- // ## 📦 What is a Model?
 
-// Modal ek tarah ka interface hota hai jo database ke corresponding collection par CRUD operations ko asaan banata hai. Iska use aap database ke sath interact karne ke liye kar sakte ho, jisme aap create, read, update, aur delete operations perform kar sakte ho collection me documents par. Server ke context me, modal ka use aap data ke structure aur uske sath interact karne ke methods ko define karne ke liye kar sakte ho, jisse database me data ko manage aur manipulate karna asaan ho jata hai.
+// A **Model** is a wrapper for the schema. It allows you to interact with the collection in the database.
+
+// ### 🔁 Why Models are Important?
+// - Represent collections like "Users", "Orders", etc.
+// - Perform all **CRUD operations** like:
+//   - `create()`, `find()`, `updateOne()`, `deleteOne()`
+
+// #### 📄 Example:
+```js
+const User = mongoose.model('User', userSchema);
+
+User.create({ name: "John", email: "john@example.com" });
+User.find({});
+User.findByIdAndUpdate("id", { name: "Jane" });
+User.findByIdAndDelete("id");
+``` -->
